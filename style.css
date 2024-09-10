@@ -295,8 +295,8 @@ section .button button:hover{
   justify-content: space-between;
 }
 .skills-details .box{
-  width: calc(100% / 2 - 20px);
-  margin: 20px 0;
+  width: calc(100% / 3 - 30px);
+  margin: 10px 0;
 }
 .skills-details .boxes .topic{
   font-size: 20px;
