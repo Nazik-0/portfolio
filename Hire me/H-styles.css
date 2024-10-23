@@ -43,6 +43,12 @@ input, textarea {
     font-size: 16px;
 }
 
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+}
+
+
 textarea {
     resize: vertical;
 }
@@ -59,4 +65,24 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    input, textarea, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px 15px;
+    }
 }

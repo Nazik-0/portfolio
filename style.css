@@ -24,6 +24,11 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #4070f4;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 /* navbar styling */
 nav{
   position: fixed;
@@ -33,10 +38,17 @@ nav{
   transition: all 0.3s ease;
   font-family: 'Ubuntu', sans-serif;
 }
-nav.sticky{
-  background: #4070f4;
-  padding: 13px 0;
+
+:root {
+  --primary-color: #4070f4;
+  --text-color: #0E2431;
+  --background-light: #F0F8FF;
 }
+
+nav.sticky {
+  background: var(--primary-color);
+}
+
 nav .navbar{
   width: 90%;
   display: flex;
@@ -85,6 +97,18 @@ nav.sticky .media-icons a{
   color: #FFF;
 }
 
+.media-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Align icons to the center */
+  margin: 20px;
+}
+
+.media-icons a {
+  margin: 0 10px; /* Add spacing between icons */
+  font-size: 24px; /* Adjust size as needed */
+}
+
 /* Side Navigation Menu Button CSS */
 nav .menu-btn,
 .navbar .menu .cancel-btn{
@@ -114,6 +138,7 @@ nav.sticky .menu-btn{
   background: url("images/background.png") no-repeat;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat; 
   background-attachment: fixed;
   font-family: 'Ubuntu', sans-serif;
 }
@@ -235,7 +260,7 @@ section  .topic{
 section .button{
   margin: 16px 0;
 }
-section .button button{
+section .button button, .home .button button {
   outline: none;
   padding: 8px 16px;
   border-radius: 4px;
@@ -506,5 +531,26 @@ footer .text span a:hover{
   .skills-details .boxes .per{
     font-size: 50px;
     color: #4070f4;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-details .boxes, .services .boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+  .skills-details .box, .services .boxes .box {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .social-icons {
+    display: block; /* or flex/grid if needed */
+  }
+  .about-details {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar .menu {
+    flex-direction: column;
   }
 }
