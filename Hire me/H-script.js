@@ -1,3 +1,4 @@
+
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -20,7 +21,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     }
 
     // Create the mailto link
-    const mailtoLink = `mailto:nazikmohamed21@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    const mailtoLink = `mailto:kizan5035@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
 
     // Open the email client
     window.location.href = mailtoLink;

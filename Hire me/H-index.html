@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Message</title>
-    <link rel="stylesheet" href="H-styles.css">
+    <link rel="stylesheet" type="text/css" href="H-styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Contact Me</h1>
-        <form id="contactForm" onsubmit="">
+        <form id="contactForm" onsubmit="sendEmail(); reset(); return false;">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
@@ -25,7 +25,8 @@
             <button type="submit">Send Message</button>
         </form>
     </div>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
     <script src="H-script.js"></script>
+
 </body>
 </html>
