@@ -7,22 +7,23 @@
     <link rel="stylesheet" type="text/css" href="H-styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="background-animation"></div>
+    <div class="particle-container">
         <h1>Contact Me</h1>
         <form id="contactForm" onsubmit="sendEmail(); reset(); return false;">
-            <label for="name">Your Name:</label>
+            <label for="name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-            <label for="email">Your Email:</label>
+            <label for="email">Your Email</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-            <label for="subject">Subject:</label>
+            <label for="subject">Subject</label>
             <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
 
-            <label for="message">Message:</label>
+            <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
 
-            <button type="submit">Send Message</button>
+            <button type="submit">Send</button>
         </form>
     </div>
 

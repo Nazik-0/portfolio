@@ -6,14 +6,15 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden; /* Prevents scrolling */
+    background: linear-gradient(to bottom right, #ffffff, #d0e7ff);
 }
 
-.container {
+.particle-container {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -21,6 +22,71 @@ body {
     width: 100%;
     max-width: 400px;
     text-align: center;
+}
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 123, 255, 0.5);
+    border-radius: 50%;
+    opacity: 0;
+    animation: moveParticle 5s infinite linear;
+}
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(45deg, #628ee1, #00d2ff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    overflow: hidden;
+    z-index: -1;
+}
+/* Keyframes for gradient color animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* Wave effect with pseudo-elements */
+.background-animation::before,
+.background-animation::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(95, 119, 197, 0.881), transparent);
+    opacity: 0.2;
+    animation: waveAnimation 8s linear infinite;
+}
+
+/* Rotating waves */
+.background-animation::after {
+    animation: waveAnimation 10s linear infinite reverse;
+    opacity: 0.15;
+}
+
+/* Keyframes for wave animation */
+@keyframes waveAnimation {
+    0% {
+        transform: scale(1.1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.3) rotate(180deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(360deg);
+    }
 }
 
 h1 {
@@ -54,7 +120,7 @@ textarea {
 }
 
 button {
-    background-color: #17317f;
+    background-color: #628ee1;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -64,7 +130,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #17317f;
 }
 
 @media (max-width: 600px) {
@@ -84,5 +150,16 @@ button:hover {
 
     button {
         padding: 10px 15px;
+    }
+}
+
+@keyframes moveParticle {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
     }
 }
