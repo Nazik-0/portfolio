@@ -322,57 +322,112 @@ section .button button:hover{
 }
 
  /* My Skills CSS */
- .skills{
-   background: #F0F8FF;
- }
- .skills .content{
-   padding: 40px 0;
- }
- .skills .skills-details{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
- }
- .skills-details .text{
-   width: 45%;
- }
- .skills-details p{
-   color: #0E2431;
-   text-align: justify;
- }
-.skills .skills-details .experience{
-  display: flex;
-  align-items: center;
-  margin: 0 10px;
+ .skills {
+  background: #f0f8ff;
+  padding: 50px 20px;
+  text-align: center;
 }
-.skills-details .experience .num{
-  color: #0E2431;
-  font-size: 80px;
+.skills .content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.skills-details .experience .exp{
-  color: #0E2431;
-  margin-left: 20px;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 0 6px;
-}
-.skills-details .boxes{
-  width: 45%;
+.skills .skills-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
 }
-.skills-details .box{
-  width: calc(100% / 3 - 30px);
-  margin: 10px 0;
+.skills .text {
+  flex: 1 1 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
-.skills-details .boxes .topic{
-  font-size: 20px;
-  color: #4070f4;
+.skills .text .topic {
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 10px;
 }
-.skills-details .boxes .per{
-  font-size: 60px;
-  color: #4070f4;
+
+.skills .image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  flex: 1 1 100%;
+}
+
+.skills .image-grid img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skills .image-grid img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+/* Responsive Design: Small Screens */
+@media (max-width: 768px) {
+  .skills .skills-details {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .skills .text {
+    margin-bottom: 20px;
+  }
+
+  .skills .image-grid {
+    grid-template-columns: repeat(2, 1fr); /* Adjust grid to 2 columns */
+    gap: 10px; /* Smaller gaps for small screens */
+  }
+
+  .skills .image-grid img {
+    max-width: 100px; /* Smaller icon size */
+  }
+
+  .skills .title h2 {
+    font-size: 2rem; /* Reduce heading size */
+  }
+
+  .skills .text .topic {
+    font-size: 1.5rem;
+  }
+
+  .skills .text p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Design: Large Screens */
+@media (min-width: 1200px) {
+  .skills .skills-details {
+    gap: 40px; /* Increase space between sections */
+  }
+
+  .skills .image-grid {
+    grid-template-columns: repeat(4, 1fr); /* Adjust grid to 4 columns */
+  }
+
+  .skills .image-grid img {
+    max-width: 150px; /* Larger icon size */
+  }
+
+  .skills .title h2 {
+    font-size: 3rem; /* Increase heading size */
+  }
+
+  .skills .text .topic {
+    font-size: 2rem;
+  }
+
+  .skills .text p {
+    font-size: 1.2rem;
+  }
 }
 
 /* My Services CSS */
@@ -473,31 +528,61 @@ footer .text span a:hover{
     width: 85%;
   }
 }
-@media (max-width: 1000px) {
-  .about .about-details{
-    justify-content: center;
-    flex-direction: column;
+/* General Flex Wrap */
+.about .about-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+/* For screens smaller than 1024px */
+@media (max-width: 1024px) {
+  .about .about-details .left,
+  .about .about-details .right {
+    width: 100%; /* Take full width for better readability */
   }
-  .about .about-details .left{
-    display: flex;
-    justify-content: center;
+  .about .left img {
+    height: auto;
     width: 100%;
+    max-height: 300px; /* Prevent oversized images */
   }
-  .about-details .right{
-    width: 90%;
-    margin: 40px 0;
+  .about-details .right .tab-titles {
+    flex-direction: column; /* Stack tab links vertically */
+    align-items: flex-start;
   }
-  .services .boxes .box{
-    margin: 20px 0;
-    width: calc(100% / 2 - 20px);
-  }
-}
-@media (max-width: 900px) {
-  .about .left img{
-    height: 350px;
-    width: 350px;
+  .about-details .right .tab-links {
+    margin-right: 0;
+    margin-bottom: 10px; /* Add space between links */
   }
 }
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  section .title span {
+    font-size: 24px; /* Smaller font size */
+  }
+  section .content {
+    width: 90%; /* Increase padding */
+  }
+  .about .about-details .left img {
+    max-height: 100%; /* Smaller image for small screens */
+  }
+  .about-details .right .tab-links {
+    margin: 10px 0; /* Add spacing between each tab */
+    font-size: 16px; /* Adjust font size for better readability */
+    text-align: center; /* Center-align text for better appearance */
+  }
+  .about-details .right .tab-contents ul li {
+    margin: 10px 0; /* Reduce spacing between list items */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+  section .button button {
+    font-size: 20px; /* Adjust button size */
+    padding: 6px 12px; /* Smaller padding */
+  }
+}
+
 
 @media (max-width: 750px) {
   nav .navbar{
@@ -550,11 +635,6 @@ footer .text span a:hover{
     width: 100%;
     margin-bottom: 50px;
   }
-  .skills-details .boxes{
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
   .services .boxes .box{
     margin: 20px 0;
     width: 100%;
@@ -571,21 +651,9 @@ footer .text span a:hover{
   .home .text-three{
     font-size: 33px;
   }
-  .skills-details .boxes .per{
-    font-size: 50px;
-    color: #4070f4;
-  }
 }
 
 @media (max-width: 768px) {
-  .skills-details .boxes, .services .boxes {
-    flex-direction: column;
-    align-items: center;
-  }
-  .skills-details .box, .services .boxes .box {
-    width: 100%;
-    margin: 10px 0;
-  }
   .social-icons {
     display: block; /* or flex/grid if needed */
   }
